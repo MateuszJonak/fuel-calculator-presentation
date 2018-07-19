@@ -1,5 +1,7 @@
 # What was added:
 1. Create application by "create-react-native-app"
+2. Create navigation
+3. Setup redux and create selectors
 
 
 ===========
