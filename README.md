@@ -2,6 +2,7 @@
 1. Create application by "create-react-native-app"
 2. Create navigation
 3. Setup redux and create selectors
+4. Extend calculator view and add form
 
 
 ===========

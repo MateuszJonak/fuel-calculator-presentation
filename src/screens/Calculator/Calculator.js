@@ -5,9 +5,13 @@ import {
   Dimensions,
   KeyboardAvoidingView,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { SafeAreaView } from 'react-navigation';
 import { Icon } from 'react-native-elements';
+import { getPrice } from '../../store/calculator/selectors';
 import { colors } from '../../config';
+import FormView from './FormView';
+import ResultView from './ResultView';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -25,6 +29,8 @@ class ScreensCalculator extends Component {
             enabled
             contentContainerStyle={styles.formContainer}>
             <Icon name="fuel" size={100} type="material-community" />
+            <FormView />
+            <ResultView price={this.props.price} />
           </KeyboardAvoidingView>
         </SafeAreaView>
       </ScrollView>
@@ -50,4 +56,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ScreensCalculator;
+const mapStateToProps = state => ({
+  price: getPrice(state),
+});
+
+export default connect(
+  mapStateToProps,
+  {},
+)(ScreensCalculator);
